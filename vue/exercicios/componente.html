@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Componente</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <saudacao nome="Ana"></saudacao> <!--Chamando o componente criado abaixo-->
+        <saudacao nome="Bia"></saudacao>
+        <saudacao nome="Julia"></saudacao>
+    </div>
+    <script>
+        // Criando um componente personalizado
+        Vue.component('saudacao', { //primeiro parametro é o nome do componente 'saudacao', e o segundo um objeto com propriedades e outras coisas desejadas
+            props: ['nome'],
+            template: `
+                <div>Bom dia {{nome}} ! </div>
+            `
+        })
+
+        new Vue({
+            el: "#app"
+        })
+    </script>
+</body>
+</html>

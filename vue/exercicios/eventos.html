@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <p>{{contador}}</p>
+        <p>
+            <button v-on:click="add">+1</button><!--v-on = diretiva responsavel por fazer o bind de uma função , quando for chamada por um evento-->
+            <!--Ou-->
+            <button @click="contador -= 2">-2</button> <!--Em vez de colocar a função, você consegue colocar pequenas espressões tambem-->
+        </p>
+
+        <p @mousemove = "atualizarPosicao"> <!--Chama função quando mouse passa pelo elemento-->
+            Cordenadas: {{x}} e {{y}}
+            <span @mousemove.stop>Aqui Não</span> <!--.stop - para o evento (nesse caso, quando o mouse passar por cima do span)-->
+        </p>
+
+        <input type="text" @keyup.enter = "alerta"> <!--keyup.enter = evento desparado quando apertar a tecla enter (ps.. se tirar o .enter, ira disparar com qualquer tecla)-->
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data:{
+                x: 0,
+                y: 0,
+                contador:0
+            },
+            methods:{
+                add() { //Metodo que incrementa o contador
+                    this.contador++
+                },
+                atualizarPosicao(e) { //Função para pegar a posição do mouse
+                    this.x = e.clientX
+                    this.y = e.clientY
+                },
+                alerta() {
+                    alert('Enter!')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

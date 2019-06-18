@@ -1,0 +1,31 @@
+<!--Aplicando css em uma estrutura condicional-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Aplicando Estilo</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+    <style>
+        .vermelho {
+            background-color: red;
+        }
+    </style>
+</head>
+<body class="exercicio">
+    <!--@click="aplicarCor = !aplicarCor" =(quando clicar na div, aplicarCor sera igual a sua negação, ou seja, se for true sera false, e se for false sera true-->
+    <div id="app" @click="aplicarCor = !aplicarCor"
+        :class="{'vermelho': aplicarCor}" > <!--Se aplicarCor for true ira aplicar a classe css-->
+        Teste
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data:{
+                aplicarCor: false
+            }
+        })
+    </script>
+</body>
+</html>

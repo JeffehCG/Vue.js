@@ -1,0 +1,45 @@
+<!-- Quando você cria uma instancia do Vue, voce associa essa instancia a um trecho de html (ele vira um template do vue)
+e esse trecho de html passa a ser controlado pelo Vue (Assim muitas coisas da Dom são manipuladas)
+Então apartir da tag marcada para baixo, todo o resto da aplicação é controlada pelo vue -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Conceitos Básicos</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script> <!--Import do Vuejs-->
+</head>
+<body class="exercicio">
+    <div id="app"> <!--Template Vue (area que o vue sera renderizado)-->
+        <!--Dentro dessa area você consegue chamar expreções entre chaves duplas {{}}-->
+        <p>1) {{2 + 2}}</p>
+        <p>2) {{"teste".toUpperCase()}}</p>
+        <p>3) Produto: {{nome}}, R$ {{preco}}, {{desconto * 100}}%</p> <!--Pegando dados do atributo data da instancia Vue-->
+        <p>4) Hora Certa: {{ horaCerta() }}</p> <!--Chamando as funções de method-->
+        <p>4) Preço com Desconto: R$ {{precoComDesconto}}</p> <!--Pegando os valores de computed (ps... você não chama como uma função, e sim como um atributo-->
+    </div>
+
+    <script>
+        //Função construtora que cria uma instancia do vue
+        new Vue({ //Objeto com atributos de configuração do vue
+            el: "#app", //especificando o elemento que o vue ira controlar
+            data: { //Dados que estaram disponiveis dentro da aplicação vue
+                nome: 'Caneta',
+                preco: 6.89,
+                desconto: 0.15
+            },
+            methods: { //Metodos que estaram disponiveis dento da aplicação
+                horaCerta() {
+                    return new Date().toLocaleString()
+                }
+            },
+            computed: { //valores calculados
+                precoComDesconto(){
+                   return this.preco * (1 - this.desconto)//dentro da instancia é preciso colocar o this para pegar os atributos
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+	Scripts no package.json para rodar os exercios pelo http-server
+
+    "scripts": {
+		"exercicios": "http-server ./exercicios -c-1",
+		"qrcode": "http-server ./qrcode -c-1",
+		"sales": "http-server ./sales -c-1"
+	},
+
+	Ps... - para exercutar cada pasta de exercicio é preciso executar o comando respectivo dentro do terminal
+	exemplo (dentro da pasta exercicio no terminal executar npm run exercicios)

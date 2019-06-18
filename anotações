@@ -1,0 +1,10 @@
+Vetur - plugin que ajuda para programar em arquivos VueJS
+
+Instalando o Vue
+npm i -g @vue/cli
+
+Criando um projeto
+vue create NomeDoProjeto
+
+Para iniciar o projeto
+npm run serve
